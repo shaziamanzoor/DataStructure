@@ -8,7 +8,7 @@ int binary_search(int arr[], int low, int high, int target){
   int result = -1;
   
   while (left < right) {
-    int mid = (left + right) / 2;
+    int mid = left + ((right - left) / 2);
     int midValue = arr[mid];
 
     if (target == midValue) {
