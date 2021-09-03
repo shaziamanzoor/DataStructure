@@ -1,0 +1,7 @@
+cleanup.sh
+*/a.out
+*/*.o
+*/*/a.out
+*/*/*.o
+*/**/a.out
+*/**/*.o

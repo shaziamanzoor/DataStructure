@@ -11,7 +11,7 @@ Stack* stack_init(size_t stack_size) {
   return stack;
 }
 
-int stack_pop(Stack* stack, int *value) {
+int stack_pop(Stack* stack, StackEntry *value) {
   if (stack_is_empty(stack))
     return STACK_ERROR_EMPTY;
 
@@ -20,7 +20,7 @@ int stack_pop(Stack* stack, int *value) {
   return STACK_OK;
 }
 
-int stack_push(Stack* stack, int value) {
+int stack_push(Stack* stack, StackEntry value) {
   if (stack_is_full(stack))
     return STACK_ERROR_FULL;
 
@@ -28,7 +28,7 @@ int stack_push(Stack* stack, int value) {
   return STACK_OK;
 }
   
-int stack_top(Stack* stack, int *value) {
+int stack_top(Stack* stack, StackEntry *value) {
   if (stack_is_full(stack))
     return STACK_ERROR_FULL;
 
