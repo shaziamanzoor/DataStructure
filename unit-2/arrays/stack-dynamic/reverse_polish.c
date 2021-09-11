@@ -37,7 +37,7 @@ int operate(char op, int x, int y) {
 }
 
 int evaluate_reverse_polish(char* expression, int* result) {
-  Stack *stack = stack_init(MAX_EXPRESSION_SIZE); 
+  Stack *stack = stack_create(MAX_EXPRESSION_SIZE); 
 
   for (char *p = expression; (*p) != '\0'; p++) {
     char c = *p;
