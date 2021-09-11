@@ -3,7 +3,7 @@
 
 #include <stdbool.h>
 
-typedef StackEntry int;
+typedef int StackEntry ;
 
 typedef struct stack {
   StackEntry *elements;
@@ -11,10 +11,10 @@ typedef struct stack {
   int top;
 } Stack;
 
-Stack* stack_init(size_t stack_size);
-int stack_pop(Stack* stack, StackEntry *value);
-int stack_push(Stack* stack, StackEntry value);
-int stack_top(Stack* stack, StackEntry *value);
+Stack* stack_create(size_t stack_size);
+int stack_pop(Stack* stack, StackEntry *item);
+int stack_push(Stack* stack, StackEntry item);
+int stack_top(Stack* stack, StackEntry *item);
 bool stack_is_empty(Stack* stack);
 bool stack_is_full(Stack* stack);
 void stack_destroy(Stack* stack);
