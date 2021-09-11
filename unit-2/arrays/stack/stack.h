@@ -8,15 +8,15 @@ typedef char StackEntry;
 
 typedef struct stack{
   int tos;
-  StackEntry entry[MAXSTACK];
+  StackEntry elements[MAXSTACK];
 }Stack;
 
-void stack_init(Stack *s);
-void stack_push(Stack *s, StackEntry item);
-void stack_pop(Stack *s, StackEntry* item);
-bool stack_is_empty(Stack *s);
-bool stack_is_full(Stack *s);
-void stack_clear(Stack *s);
-void stack_print(Stack *s);
-
+void stack_init(Stack *stack);
+void stack_push(Stack *stack, StackEntry item);
+void stack_pop(Stack *stack, StackEntry* item);
+bool stack_is_empty(Stack *stack);
+bool stack_is_full(Stack *stack);
+void stack_clear(Stack *stack);
+void stack_debug(Stack *stack);
+int stack_count(Stack *stack);
 #endif

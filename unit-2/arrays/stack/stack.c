@@ -8,41 +8,46 @@ static void error(char* message) {
   exit(-1);
 }
 
-void stack_init(Stack *s){
-  s->tos = 0;
+void stack_init(Stack *stack){
+  stack->tos = 0;
 }
 
-bool stack_is_full(Stack *s){
-  return s->tos >= MAXSTACK;
+bool stack_is_full(Stack *stack){
+  return stack->tos >= MAXSTACK;
 }
 
-bool stack_is_empty(Stack* s){
-  return s->tos == 0;
+bool stack_is_empty(Stack *stack){
+  return stack->tos == 0;
 }
 
-void stack_print(Stack *s){
-  for(int i = 0; i < s->tos; i++)
-    printf("%c, ", s->entry[i]);
+void stack_debug(Stack *stack){
+  for(int i = 0; i < stack->tos; i++)
+    printf("%c, ", stack->elements[i]);
   printf("\n");
 }
 
-void stack_push(Stack *s, StackEntry item){
-  if(stack_is_full(s))
+void stack_push(Stack *stack, StackEntry item){
+  if(stack_is_full(stack))
     error("Stack is full");
   else  
-    s->entry[s->tos++] = item;
+    stack->elements[stack->tos++] = item;
   
 }
 
-void stack_pop(Stack* s, StackEntry *item){
-  if(stack_is_empty(s))
+void stack_pop(Stack *stack, StackEntry *item){
+  if(stack_is_empty(stack))
     error("Stack is empty");
   else{
-    *item = s->entry[--s->tos];
+    *item = stack->elements[--stack->tos];
   }
 }
 
-void stack_clear(Stack* s) {
-  s->tos = 0;
+void stack_clear(Stack *stack) {
+  stack->tos = 0;
 }
-
+int stack_count(Stack *stack){
+//	int count = 0;
+//	for(int i = 0; i < stack->tos; i++)
+//		count++;
+	return stack->tos;
+}
