@@ -25,8 +25,8 @@ void queue_enqueue(Queue* queue, QueueEntry entry) {
     error("Queue is full");
 
   queue->count++;
-  queue->elements[queue->front] = entry;
-  queue->front = (queue->front + 1) % MAX_QUEUE_SIZE;
+  queue->rear = (queue->rear + 1) % MAX_QUEUE_SIZE;
+  queue->elements[queue->rear] = entry;
 }
 
 void queue_dequeue(Queue* queue, QueueEntry *entry) {
@@ -34,8 +34,8 @@ void queue_dequeue(Queue* queue, QueueEntry *entry) {
     error("Queue is empty");
 
   queue->count--;
-  queue->rear = (queue->rear + 1) % MAX_QUEUE_SIZE;
-  *entry = queue->elements[queue->rear];
+  *entry = queue->elements[queue->front];
+  queue->front = (queue->front + 1) % MAX_QUEUE_SIZE;
 
   if (queue_is_empty(queue)) {
     queue_init(queue);

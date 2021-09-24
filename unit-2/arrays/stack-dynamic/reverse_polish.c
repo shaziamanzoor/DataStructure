@@ -74,7 +74,7 @@ int evaluate_reverse_polish(char* expression, int* result) {
 int main(int argc, char* argv[]) {
 
   if (argc != 2) {
-    fprintf(stderr, "usage: %s reverse-polish-expression\n", argv[0]);
+    fprintf(stderr, "Wrong usage: %s reverse-polish-expression\n", argv[0]);
     return -1;
   }
   
