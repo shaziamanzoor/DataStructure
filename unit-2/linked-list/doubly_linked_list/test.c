@@ -8,7 +8,8 @@ void print_value(DoubleNode *node) {
 }
 
 void print_list(DoubleNode *head) {
-  dll_for_each(head, print_value);
+  for (DoubleNode* p = head; p != NULL; p = p->next)
+    printf("%d ", p->value);
   printf("\n");
 }
 

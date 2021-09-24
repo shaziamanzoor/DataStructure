@@ -1,8 +1,9 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "doubly_linked_list.h"
 
-DoubleNode* dll_create_node(Data value) {
+DoubleNode* dll_create_node(data value) {
   DoubleNode *node = calloc(1, sizeof(DoubleNode));
   node->value = value;
   node->prev = NULL;
@@ -10,15 +11,15 @@ DoubleNode* dll_create_node(Data value) {
   return node;
 }
 
-DoubleNode* dll_prepend(DoubleNode* node, Data value) {
+DoubleNode* dll_prepend(DoubleNode* head, data value) {
   DoubleNode* newNode = dll_create_node(value);
-  newNode->next = node;
-  if (node)
-    node->prev = newNode;
+  newNode->next = head;
+  if (head)
+    head->prev = newNode;
   return newNode;
 }
 
-void dll_insert_before(DoubleNode* node, Data value){
+void dll_insert_before(DoubleNode* node, data value){
   DoubleNode* newNode = dll_create_node(value);
   DoubleNode* origPrev = node->prev;
   node->prev = newNode;
@@ -28,7 +29,7 @@ void dll_insert_before(DoubleNode* node, Data value){
     origPrev->next = newNode;
 }
 
-void dll_insert_after(DoubleNode* node, Data value){
+void dll_insert_after(DoubleNode* node, data value){
   DoubleNode* newNode = dll_create_node(value);
   DoubleNode* origNext = node->next;
   node->next = newNode;
@@ -38,11 +39,7 @@ void dll_insert_after(DoubleNode* node, Data value){
     origNext->prev = newNode;
 }
 
-void dll_for_each(DoubleNode *head, void (*fn)(DoubleNode*)) {
-  for (DoubleNode* p = head; p != NULL; p = p->next) fn(p);
-}
-
-DoubleNode* dll_find(DoubleNode *head, Data value) {
+DoubleNode* dll_find(DoubleNode *head, data value) {
   DoubleNode *p;
   for (p = head; p != NULL && p->value != value; p = p->next);
   return p;

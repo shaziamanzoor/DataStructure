@@ -1,19 +1,18 @@
 #ifndef DOUBLY_LINKED_LIST
 #define DOUBLY_LINKED_LIST
 
-typedef int Data;
+typedef int data;
 
 typedef struct double_node {
-  Data value;
+  data value;
   struct double_node *prev;
   struct double_node *next;
 } DoubleNode;
 
-DoubleNode* dll_create_node(Data value);
-DoubleNode* dll_prepend(DoubleNode* node, Data value);
-void dll_insert_before(DoubleNode* node, Data value);
-void dll_insert_after(DoubleNode* node, Data value);
-void dll_for_each(DoubleNode* head, void (*fn) (DoubleNode*));
-DoubleNode* dll_find(DoubleNode* head, Data value);
+DoubleNode* dll_create_node(data value);
+DoubleNode* dll_prepend(DoubleNode* head, data value);
+void dll_insert_before(DoubleNode* node, data value);
+void dll_insert_after(DoubleNode* node, data value);
+DoubleNode* dll_find(DoubleNode* head, data value);
 
 #endif
