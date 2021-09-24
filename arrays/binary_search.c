@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdbool.h>
 #include <assert.h>
 
 int binary_search(int arr[], int low, int high, int target){
@@ -27,7 +26,7 @@ int binary_search(int arr[], int low, int high, int target){
 
 int main(){
   int elements[] = {2, 3, 4, 6, 8, 9, 34, 90, 112, 221};
-  int length = sizeof elements/sizeof elements[0]; 
+  int length = sizeof elements / sizeof elements[0]; 
 
   assert(binary_search(elements, 0, length, 0) == -1);
   assert(binary_search(elements, 0, length, 222) == -1);
@@ -36,7 +35,11 @@ int main(){
   assert(binary_search(elements, 0, length, 4) == 2);
   assert(binary_search(elements, 0, length, 2) == 0);
   assert(binary_search(elements, 0, length, 221) == 9);
-  
+  assert(binary_search(elements, 0, length, 34) == 6);
+  //  assert(binary_search(elements, 0, length, 8) == 1);
+  int e[] = {2};
+  assert(binary_search(e, 0, 1, 2) == 0);
+  printf("%d", binary_search(e, 0, 1 ,2));
   return 0;
 }
   

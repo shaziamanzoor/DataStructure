@@ -30,7 +30,7 @@ bool array_equals(int xs[], int ys[], size_t size){
 
 int main(){
   int arr[] = {1, 2, 3, 4, 7, 0};
-  int sorted [] = {0, 1, 2, 3, 4, 7};
+  int sorted [] = {1, 0, 2, 3, 4, 7};
   
   size_t size = sizeof  arr / sizeof arr[0]; 
   selection_sort(arr, size);

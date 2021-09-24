@@ -37,31 +37,15 @@ void printMatrix(int matrix[ROWS][COLS]) {
 }
 
 int main(){
-  int matrix[ROWS][COLS];
-
-  initMatrix(matrix, setZero);
-  printMatrix(matrix);
-  
-  initMatrix(matrix, setDiagonal);
-  printMatrix(matrix);
-
-  initMatrix(matrix, setProduct);
-  printMatrix(matrix);
-  
-  /*for(int i = 0; i < ROWS; i++){
-    for(int j = 0; j < COLS; j++){
-      matrix[i][j] = i * j;
-      // matrix[i][j] = 0;
-       
-    }
-    }*/
-
-  findSparseMatrix(matrix);
-  return 0;
+   int matrix[ROWS][COLS];
+   initMatrix(matrix, setDiagonal);
+   printMatrix(matrix);
+   findSparseMatrix(matrix);
+   return 0;
 }
 
 void findSparseMatrix(int matrix[ROWS][COLS]){
-  int sparse_counter;
+  int sparse_counter = 0;
   for(int i = 0; i < ROWS; i++){
     for(int j = 0; j < COLS; j++){
       if (matrix[i][j] == 0){

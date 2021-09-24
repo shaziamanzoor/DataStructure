@@ -4,18 +4,18 @@
 
 void bubble_sort(int a[], size_t size){
   for(int i = 0; i < size; i++){
-    bool already_sorted = true;
+    // bool already_sorted = true;
     // printf ("%d outer loop\n", i);
     for(int j = 0; j < size - i - 1; j++){
       if(a[j] > a[j + 1]){
         int temp = a[j];
         a[j] = a[j + 1];
         a[j + 1] = temp;
-        already_sorted = false;
+        //  already_sorted = false;
       }
     }
 
-     if (already_sorted) return;
+    // if (already_sorted) return;
   }
 }
 
@@ -41,15 +41,17 @@ void print_array(int xs[], size_t size) {
 
 int main(){
   
-  int arr[] =  {1, 2, 3, 5, 6, 9};
+  int arr[] =  {1, 3, 2, 6, 5, 9};
   int sorted [] = {1, 2, 3, 5, 6, 9};
   
   size_t size = sizeof arr / sizeof arr[0];
 
   bubble_sort(arr, size);
-  // print_array(arr, size);
-  //assert(array_equal(arr, sorted, size));
-  assert(array_equal(sorted,sorted,size));
+  print_array(arr, size);
+  
+  // assert(array_equal(arr, sorted, size));
+  // assert(array_equal(sorted,  sorted,  size));
 
   return 0;
 }
+B
