@@ -21,5 +21,5 @@ int main(){
   assert(array_sum(arr, 0, arr_size) ==  20);
   assert(array_multiply(arr, 0, arr_size) == 720);
   assert(array_multiply(arr2, 0, arr2_size) == 16);
-  assert(array_multiply(arr3, 0 , 3) == 60);
+  assert(array_multiply(arr3, 0 , 3) == 160);
 }
