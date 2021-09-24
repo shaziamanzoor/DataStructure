@@ -1,9 +1,10 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "linked_list.h"
 
 Node* ll_make_node(int data) {
-  Node* node = calloc(1, sizeof(struct node));
+  Node* node = calloc(1, sizeof(Node));
   node->next = NULL;
   node->data = data;
   return node;
@@ -48,12 +49,12 @@ Node* ll_delete(Node* head, Node *node) {
     return head;
   }
   
-  Node* parent = head;
+  Node* parent = NULL;
   Node* n = head;
   for (; n != NULL && n != node; n = n->next)
     parent = n;
 
-  if (parent != NULL && n != NULL) {
+  if ( n != NULL) {
     parent->next = n->next;
     free(n);
   }
