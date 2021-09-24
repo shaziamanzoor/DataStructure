@@ -3,10 +3,6 @@
 #include <assert.h>
 #include "doubly_linked_list.h"
 
-void print_value(DoubleNode *node) {
-  printf("%d ", node->value);
-}
-
 void print_list(DoubleNode *head) {
   for (DoubleNode* p = head; p != NULL; p = p->next)
     printf("%d ", p->value);
