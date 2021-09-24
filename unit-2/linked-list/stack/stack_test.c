@@ -8,7 +8,7 @@ int main(void){
   
   for (int i = 0; i < 10; i++)
     assert(stack_push(stack, i) == STACK_OK);
-
+ 
   assert(!stack_is_empty(stack));
   
   ll_print(stack->head);

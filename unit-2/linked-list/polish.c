@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
+#include <stdlib.h>
 #include "stack/stack.h"
 
 bool is_operator(int c) {
@@ -69,9 +70,21 @@ int evaluate_polish(const char* str, int *result) {
 }  
       
 
-int main(void) {
+int main(int argc, char* argv[]) {
   int result;
   assert(evaluate_polish("-*+129+23", &result) == 0);
   assert(result == 22);
+
+  if (argc != 2) {
+    fprintf(stderr, "Wrong usage: %s <polish-expression>\n", argv[0]);
+    exit(-1);
+  }
+
+  if (evaluate_polish(argv[1], &result) != 0) {
+    fprintf(stderr, "Wrong expression: %s\n", argv[1]);
+  } else {
+    printf("%d\n", result);
+  }
+  
   return 0;
 }

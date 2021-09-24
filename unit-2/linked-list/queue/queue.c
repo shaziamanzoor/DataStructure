@@ -1,54 +1,57 @@
+#include <stdlib.h>
 #include <stdbool.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include "queue.h"
-#include "../doubly_linked_list/doubly_linked_list.h"
+#include "../linked_list/linked_list.h"
 
 static void error(const char* message) {
   fprintf(stderr, "Queue error: %s\n", message);
   exit(-1);
 }
 
-void queue_init(Queue *queue){
+void queue_init(Queue *queue) {
   queue->front = NULL;
   queue->rear = NULL;
 }
 
 void queue_peek(Queue* queue, QueueEntry *entry) {
   if (queue_is_empty(queue))
-    error("queue is empty");
+    error("Queue is empty");
 
-  *entry = queue->front->value;
+  *entry = queue->front->data;
 }
-    
+
 void queue_enqueue(Queue* queue, QueueEntry entry) {
-  if (queue_is_empty(queue)) {
-    queue->front = queue->rear = dll_prepend(NULL, entry);
-  } else {
-    dll_insert_after(queue->rear, entry);
-    queue->rear = queue->rear->next;
+  Node *newNode = ll_make_node(entry);
+
+  if (queue_is_empty(queue))
+    queue->front = queue->rear = newNode;
+  else {
+    queue->rear->next = newNode;
+    queue->rear = newNode;
   }
 }
 
 void queue_dequeue(Queue* queue, QueueEntry *entry) {
   if (queue_is_empty(queue))
-    error("queue is empty");
+    error("Queue is empty");
 
-  DoubleNode *head = queue->front;
-  *entry = head->value;
-  queue->front = head->next;
-  if (queue->front)
-    queue->front->prev = NULL;
-  else
+  *entry = queue->front->data;
+  Node* node = queue->front;
+  queue->front = node->next;
+
+  if (queue->front == NULL)
     queue->rear = NULL;
-  free(head);
-}
 
+  free(node);
+}
+       
 bool queue_is_empty(Queue* queue) {
   return queue->front == NULL;
 }
-
-void queue_for_each(Queue *queue, void (*fn) (DoubleNode*)) {
-  dll_for_each(queue->front, fn);
+  
+void queue_for_each(Queue* queue, void (*fn)(Node*)){
+  for (Node *p = queue->front; p != NULL; p = p->next)
+    fn(p);
 }
 
