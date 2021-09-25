@@ -13,7 +13,7 @@ DoubleNode* dll_create_node(data value);
 DoubleNode* dll_prepend(DoubleNode* head, data value);
 void dll_insert_before(DoubleNode* node, data value);
 void dll_insert_after(DoubleNode* node, data value);
-void dll_delete_node(DoubleNode *node);
+DoubleNode* dll_delete_node(DoubleNode *head, DoubleNode *node);
 DoubleNode* dll_find(DoubleNode* head, data value);
 
 #endif
