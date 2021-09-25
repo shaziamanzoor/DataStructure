@@ -22,7 +22,8 @@ int main(void) {
   DoubleNode* value_5 = dll_find(values, 5);
   dll_insert_before(value_5, 11);
   dll_insert_after(value_5, 12);
-
+  print_list(values);
+  dll_delete_node(value_5);
   print_list(values);
   return 0;
 }

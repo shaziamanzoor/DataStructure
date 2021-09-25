@@ -45,4 +45,18 @@ DoubleNode* dll_find(DoubleNode *head, data value) {
   return p;
 }
 
+void dll_delete_node(DoubleNode *node){
+  if(node){
+    DoubleNode *prev = node->prev;
+    if (prev)
+      prev->next = node->next;
 
+    DoubleNode *next = node->next;
+    if (next)
+      next->prev = node->prev;
+    
+    free(node);
+  }
+}
+    
+  
