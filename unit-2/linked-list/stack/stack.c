@@ -14,9 +14,7 @@ int stack_pop(Stack* stack, int *value) {
     return STACK_ERROR_EMPTY;
 
   *value = stack->head->data;
-  Node* node = stack->head;
-  stack->head = node->next;
-  free(node);
+  stack->head = ll_delete(stack->head, stack->head);
   return STACK_OK;
 }
 
