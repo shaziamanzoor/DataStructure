@@ -16,16 +16,10 @@ bool linear_search(int arr[], int size, int x){
 
 int main(){
   int elements[] = {2, 3, 4, 6, 8, 9};
-  int size = sizeof elements / sizeof elements[0];
+  int size = sizeof elements / sizeof elements[0]; 
  
-
-  if(linear_search(elements, size, 6))
-    printf("Element found number %d is present in the array\n", x);
-  else
-    printf("Element not found number %d is not present in the array\n", x);
-
-  //assert(linear_search(elements, size, 4) == true);
-  //assert(linear_search(elements, size, 1) == false);
+  assert(linear_search(elements, size, 4) == true);
+  assert(linear_search(elements, size, 1) == false);
   return 0;
 }
   
